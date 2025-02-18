@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align: center">Inventry management</h1>
+
+    <form  method="POST" action="">
+        <h4>ADDING ITEM</h4>
+        <input type="text" name="item" placeholder="item namem">
+        <input type="number" name="item" placeholder="item quantity" min="1">
+        <input type="number" name="item" placeholder="item price">
+        <button type="submit">Add Item</button>
+    </form>
+    <form method="POST" action="">
+        <h4>UPDATING ITEM</h4>
+        <input type="text" name="item" placeholder="item namem">
+        <input type="number" name="item" placeholder="item price">
+        <input type="hidden " name="action" value="update">
+       <input type="submit" name="additem" value="update my item">
+    </form>
+    <form method="POST" action="">
+        <h4>DELATING ITEM</h4>
+        <input type="text" name="item" placeholder="item namem">
+        <input type="submit" name="additem" value="deleting item">
+    </form>
+</body>
+</html>
