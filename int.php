@@ -1,6 +1,8 @@
 <?php 
-function add($a, $b) {
-    echo "Sum: " . ($a + $b) . "\n";
+function incrementByReference(&$num) {
+    $num++;
 }
-add(5, 10);
+$number = 5;
+incrementByReference($number);
+echo "After reference increment: $number\n";
 ?>
