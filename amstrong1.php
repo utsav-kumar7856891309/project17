@@ -1,13 +1,10 @@
 <?php 
-$len=readline("enter length");
-$breadth=readline("Enter Breadth");
-$rad=readline("enter raduis");
-$sid=readline("enter side");
-$area_rec=$len *$breadth;
-$area_cir=pi() *$rad* $rad;
-$area_sq=$sid*$sid;
-echo "the area of rec is".$area_rec;
-echo "the area of cirlce is ".number_format($area_cir,2);
-echo "the area of square is ".$area_sq;
-
+$name=array("manoj","Rahul","Aneesh");
+$marks=array("75","89","44");
+$c=array_combine($name,$marks);
+print_r($c);
+$courses=array("a"=>"PHP","b"=>"Laravel","c"=>"Node js","d"=>"HTML","e"=>"CSS","f"=>"ASP.NET");
+$a=array("a"=>"red","b"=>"green");
+array_push($a,"blue","yellow");
+print_r($a);
 ?>
