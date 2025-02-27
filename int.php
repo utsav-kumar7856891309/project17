@@ -3,34 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic login pages</title>
+    <title>Temperature Converter</title>
 </head>
 <body>
-    <h2>Login pages</h2>
-    <form method="POST" action="">
-        <label for="username">USername:</label>
-        <input type="text" id="username" name="username" required>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <button type="submit">Login</button>
 
-        
+    <h2>Temperature Converter</h2>
+
+    <!-- Temperature conversion form -->
+    <form method="POST" action="">
+        <label for="temperature">Enter Temperature:</label>
+        <input type="number" id="temperature" name="temperature" step="0.1" required><br><br>
+
+        <label for="conversion">Convert to:</label>
+        <select id="conversion" name="conversion">
+            <option value="toFahrenheit">Celsius to Fahrenheit</option>
+            <option value="toCelsius">Fahrenheit to Celsius</option>
+        </select><br><br>
+
+        <button type="submit">Convert</button>
     </form>
+
     <h3>Result:</h3>
-    <?php 
-     $correctUsername="admin";
-     $correctPassword="password123";
-     if($_SERVER["REQUEST_METHOD"]=="POST"){
-        $username=$_POST['username'];
-        $password=$_POST['password'];
-        if($username===$correctUsername && $password===$correctPassword){
-            echo "Login successful! Welcome, $username.";
-        }else{
-            echo "Invalid username or password ,Plesae try again.";
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $temperature = intval($_POST['temperature']);
+        $conversion = $_POST['conversion'];
+        $result = 0;
+
+        if ($conversion === "toFahrenheit") {
+            // Celsius to Fahrenheit formula: (C * 9/5) + 32
+            $result = ($temperature * 9/5) + 32;
+            echo "$temperature °C is equal to " . round($result, 2) . " °F";
+        } elseif ($conversion === "toCelsius") {
+            // Fahrenheit to Celsius formula: (F - 32) * 5/9
+            $result = ($temperature - 32) * 5/9;
+            echo "$temperature °F is equal to " . round($result, 2) . " °C";
+        } else {
+            echo "Invalid conversion type.";
         }
-     }
-    
-    
+    }
     ?>
+
 </body>
 </html>
